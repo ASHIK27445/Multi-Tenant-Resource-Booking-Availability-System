@@ -1,0 +1,27 @@
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTExNzc2ZTIwMDM0MDdlZDA1Y2U2NmIiLCJlbWFpbCI6ImFkbWluQHRlY2hjb3JwLmNvbSIsIm9yZ2FuaXphdGlvbklkIjoiNmExMTczM2JmODllNGM5MTViZTJkOTM5Iiwicm9sZSI6Ik9SR19BRE1JTiIsImlhdCI6MTc3OTUyOTU4MywiZXhwIjoxNzgwMTM0MzgzfQ.UXIGxUKADxLZqNvkDeVwA67lUVCaIuhfLGP8MTO-ErM
+
+creating resources
+POST http://localhost:3000/api/resources
+{
+    "name": "Conference Room A",
+    "type": "MEETING_ROOM",
+    "description": "Main conference room with projector",
+    "capacity": 20,
+    "bufferTimeMinutes": 15
+}
+
+GET http://localhost:3000/api/resources
+Authorization: Bearer {{token}}
+
+GET http://localhost:3000/api/availability?resourceId={{resource_id}}&durationMinutes=60
+Authorization: Bearer {{token}}
+
+POST http://localhost:3000/api/bookings
+
+{
+    "resourceId": "{{resource_id}}",
+    "startTime": "2026-05-24T04:00:00.000Z",
+    "endTime": "2026-05-24T05:00:00.000Z",
+    "title": "Team Standup Meeting",
+    "description": "Daily morning standup"
+}
